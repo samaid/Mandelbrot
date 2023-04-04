@@ -1,6 +1,6 @@
 from settings import *
 
-VERSION = 'numba-dpex'
+VERSION = 'numba'
 
 if VERSION == 'numba-dpex':
     import dpnp as np
@@ -82,10 +82,7 @@ if VERSION == 'numba':
 
 
     @nb.jit(fastmath=True, nopython=True, inline='always')
-    def color_by_intensity(intensity):
-        c1 = np.asarray([0.0, 0.0, 0.2])
-        c2 = np.asarray([1.0, 0.7, 0.9])
-        c3 = np.asarray([0.6, 1.0, 0.2])
+    def color_by_intensity(intensity, c1, c2, c3):
         if intensity < 0.5:
             return c3*intensity + c2*(1.0-intensity)
         else:
@@ -105,14 +102,19 @@ if VERSION == 'numba':
 
     @nb.jit(fastmath=True, parallel=True, nopython=True)
     def mandelbrot(zoom, values):
+        c1 = np.asarray([0.0, 0.0, 0.2])
+        c2 = np.asarray([1.0, 0.7, 0.9])
+        c3 = np.asarray([0.6, 1.0, 0.2])
+
         for x in nb.prange(DISPLAY_W):
             for y in range(DISPLAY_H):
                 xx = (x - OFFSET_X)*zoom
                 yy = (y - OFFSET_Y)*zoom
                 intensity = mandel(xx, yy)/MAX_ITER
-                color = color_by_intensity(intensity)
-                color = (color*255.0).astype(np.int32)
-                values[x, y] = color
+                for c in range(3):
+                    color = color_by_intensity(intensity, c1[c], c2[c], c3[c])
+                    color = int(color*255.0)
+                    values[x, y, c] = color
         return values
 
 if VERSION == 'numpy':
