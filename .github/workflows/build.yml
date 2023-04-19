@@ -166,7 +166,7 @@ jobs:
           #tree .
           #echo $(dirname $(find . -name "conftest.py"))
           #pytest $(dirname $(find . -name "conftest.py"))  --variant numpy
-          pytest $MODULE_NAME/tests --variant numpy
+          pytest $MODULE_NAME/tests
 
   test_windows:
     needs: build_windows
