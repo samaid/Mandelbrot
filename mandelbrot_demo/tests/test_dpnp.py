@@ -12,4 +12,4 @@ def test_dpnp():
 
     colors = mandelbrot(w, h, zoom, offset, colors)
     s = colors.astype(np.int32).sum()
-    assert np.asnumpy(s) == 2055.0
+    assert np.asnumpy(s) == 2055
