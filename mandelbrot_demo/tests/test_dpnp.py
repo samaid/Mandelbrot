@@ -9,7 +9,7 @@ def test_numpy():
     h = 2
     zoom = 1.0
     offset = (0.0, 0.0)
-    colors = np.full((w, h, 3), 0, dtype=np.uint8)
+    colors = np.full((w, h, 3), 0, dtype=np.int32)
 
     colors = mandelbrot(w, h, zoom, offset, colors)
     s = colors.astype(np.float64).sum()
