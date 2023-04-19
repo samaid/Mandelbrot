@@ -15,12 +15,6 @@ def parse_args(argv=None):
         default="numpy",
     )
     parser.add_argument(
-        "--parallel",
-        help="Keyword argument parallel= for @njit. Used along with --variant numba. Default --no-parallel",
-        action=argparse.BooleanOptionalAction,
-        default=False,
-    )
-    parser.add_argument(
         "--frames-count",
         help="Stop game after specified amount of frames (default 0 - no stop frame)",
         type=int,
@@ -33,17 +27,11 @@ def parse_args(argv=None):
         action=argparse.BooleanOptionalAction,
         default=False,
     )
-    parser.add_argument(
-        "--stats",
-        help="Either display statistics in gui while running or not. Default --no-stats",
-        action=argparse.BooleanOptionalAction,
-        default=False,
-    )
-    w = 800
-    h = 600
+    w = 1024
+    h = 800
     parser.add_argument(
         "--task-size",
-        help=f"Size of the grid. E.g. 800,600. Default {w},{h}",
+        help=f"Window size. E.g. 800,600. Default {w},{h}",
         type=int_tuple,
         default=int_tuple(f"{w},{h}"),
     )
