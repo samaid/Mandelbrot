@@ -20,7 +20,7 @@ For further details please visit respective [Wikipedia article](https://en.wikip
 From command line type:
 `mandelbrot  [command line options]`
 
-* `--variant [numba, numpy]` (default `numpy`) - implementation variant
+* `--variant [numba, numpy, dpnp, numba-dpex]` (default `numpy`) - implementation variant
 * `--frames-count` - stop rendering after a specified amount of frames. Default 0 meaning that the demo
   does not stop until user action, e.g. close window
 * `--gui` (default) or `--no-gui` - render the evolution of the grid or do the computation only and
