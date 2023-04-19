@@ -158,7 +158,7 @@ jobs:
           pip install pytest-mock
           # Test installed packages
           conda list -n test-env
-      - name: Run tests (numpy)
+      - name: Run tests
         run: |
           . $CONDA/etc/profile.d/conda.sh
           conda activate test-env
@@ -166,19 +166,7 @@ jobs:
           #tree .
           #echo $(dirname $(find . -name "conftest.py"))
           #pytest $(dirname $(find . -name "conftest.py"))  --variant numpy
-          pytest ./$MODULE_NAME/tests --variant numpy
-      - name: Run tests (dpnp)
-        run: |
-          . $CONDA/etc/profile.d/conda.sh
-          conda activate test-env
-          export OCL_ICD_FILENAMES=libintelocl.so
-          pytest ./$MODULE_NAME/tests --variant dpnp
-      - name: Run tests (numba)
-        run: |
-          . $CONDA/etc/profile.d/conda.sh
-          conda activate test-env
-          export OCL_ICD_FILENAMES=libintelocl.so
-          pytest ./$MODULE_NAME/tests --variant numba
+          pytest $MODULE_NAME/tests
 
   test_windows:
     needs: build_windows
@@ -267,15 +255,7 @@ jobs:
       - name: Run tests (numpy)
         shell: cmd /C CALL {0}
         run: >-
-          conda activate test-env && pytest ./${{ env.MODULE_NAME }}/tests --variant numpy
-      - name: Run tests (dpnp)
-        shell: cmd /C CALL {0}
-        run: >-
-          conda activate test-env && pytest ./${{ env.MODULE_NAME }}/tests --variant dpnp
-      - name: Run tests (numba no-parallel)
-        shell: cmd /C CALL {0}
-        run: >-
-          conda activate test-env && pytest ./${{ env.MODULE_NAME }}/tests  --variant numba
+          conda activate test-env && pytest ./${{ env.MODULE_NAME }}/tests
 
   upload_linux:
     needs: test_linux

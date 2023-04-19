@@ -24,7 +24,7 @@ def mandelbrot(w, h, zoom, offset, values):
     c = xx + 1j * yy[:, np.newaxis]
 
     n_iter = np.full(c.shape, 0)  # 2d array
-    z = np.empty(c.shape, np.csingle)  # 2d array too
+    z = np.zeros(c.shape, np.csingle)  # 2d array too
     mask = n_iter < MAX_ITER  # Initialize with True
     for i in range(MAX_ITER):
         z[mask] = z[mask] ** 2 + c[mask]
