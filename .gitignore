@@ -1,2 +1,4 @@
 .idea/*
 *.xml
+*.pyc
+mandelbrot_demo/__pycache__/__init__.cpython-39.pyc

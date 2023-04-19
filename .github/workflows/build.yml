@@ -166,19 +166,19 @@ jobs:
           #tree .
           #echo $(dirname $(find . -name "conftest.py"))
           #pytest $(dirname $(find . -name "conftest.py"))  --variant numpy
-          pytest ./$MODULE_NAME/tests --variant numpy
+          pytest $MODULE_NAME/tests --variant numpy
       - name: Run tests (dpnp)
         run: |
           . $CONDA/etc/profile.d/conda.sh
           conda activate test-env
           export OCL_ICD_FILENAMES=libintelocl.so
-          pytest ./$MODULE_NAME/tests --variant dpnp
+          pytest $MODULE_NAME/tests --variant dpnp
       - name: Run tests (numba)
         run: |
           . $CONDA/etc/profile.d/conda.sh
           conda activate test-env
           export OCL_ICD_FILENAMES=libintelocl.so
-          pytest ./$MODULE_NAME/tests --variant numba
+          pytest $MODULE_NAME/tests --variant numba
 
   test_windows:
     needs: build_windows
