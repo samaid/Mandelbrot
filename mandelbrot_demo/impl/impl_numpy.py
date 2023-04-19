@@ -1,5 +1,6 @@
-from mandelbrot_demo.impl.settings import MAX_ITER
 import numpy as np
+
+from mandelbrot_demo.impl.settings import MAX_ITER
 
 c1 = np.asarray([0.0, 0.0, 0.2])
 c2 = np.asarray([1.0, 0.7, 0.9])
@@ -8,7 +9,11 @@ c3 = np.asarray([0.6, 1.0, 0.2])
 
 def color_by_intensity(intensity):
     intensity = np.broadcast_to(intensity[:, :, np.newaxis], intensity.shape + (3,))
-    return np.where(intensity < 0.5, c3 * intensity + c2 * (1.0 - intensity), c1 * intensity + c2 * (1.0 - intensity))
+    return np.where(
+        intensity < 0.5,
+        c3 * intensity + c2 * (1.0 - intensity),
+        c1 * intensity + c2 * (1.0 - intensity),
+    )
 
 
 def mandelbrot(w, h, zoom, offset, values):
@@ -20,7 +25,7 @@ def mandelbrot(w, h, zoom, offset, values):
 
     n_iter = np.full(c.shape, 0)  # 2d array
     z = np.empty(c.shape, np.csingle)  # 2d array too
-    mask = (n_iter < MAX_ITER)  # Initialize with True
+    mask = n_iter < MAX_ITER  # Initialize with True
     for i in range(MAX_ITER):
         z[mask] = z[mask] ** 2 + c[mask]
         mask = mask & (np.abs(z) <= 2.0)

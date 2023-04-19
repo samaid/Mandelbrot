@@ -1,5 +1,7 @@
 import os
+
 import pygame as pg
+
 from mandelbrot_demo.impl.impl_versioner import asnumpy
 
 DISPLAY_RES = DISPLAY_W, DISPLAY_H = 1024, 800
@@ -7,14 +9,14 @@ FPS = 60
 
 N_FRAMES = 100
 
-OFFSET_X = 1.4*DISPLAY_W//2
-OFFSET_Y = DISPLAY_H//2
+OFFSET_X = 1.4 * DISPLAY_W // 2
+OFFSET_Y = DISPLAY_H // 2
 OFFSET = (OFFSET_X, OFFSET_Y)
-ZOOM = 2.5/DISPLAY_H
+ZOOM = 2.5 / DISPLAY_H
 
 
 def set_display():
-    os.environ['SDL_VIDEO_CENTERED'] = '1'
+    os.environ["SDL_VIDEO_CENTERED"] = "1"
 
     pg.init()
     surface = pg.display.set_mode(DISPLAY_RES, pg.SCALED)
@@ -29,7 +31,7 @@ def pg_init():
 
 
 def pg_draw(surface, fractal):
-    surface.fill(pg.Color('black'))
+    surface.fill(pg.Color("black"))
     pg.surfarray.blit_array(surface, asnumpy(fractal.values))
 
 

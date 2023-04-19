@@ -1,6 +1,7 @@
-from mandelbrot_demo.impl.settings import MAX_ITER
 import dpnp as np
 import numba_dpex as nb
+
+from mandelbrot_demo.impl.settings import MAX_ITER
 
 nb.config.THREADING_LAYER = "omp"
 

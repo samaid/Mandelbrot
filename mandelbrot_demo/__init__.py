@@ -1,5 +1,6 @@
 from time import time
 
+
 def time_meter(last, total):
     def _time_meter(func):
         def impl(self, *args, **kwargs):

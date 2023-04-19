@@ -1,8 +1,17 @@
-from mandelbrot_demo.impl.visualization import pg_init, pg_draw, pg_test_quit, pg_update_fps, pg_prep_next_frame
-from mandelbrot_demo.impl.visualization import pg_finalize
-from mandelbrot_demo.impl.visualization import DISPLAY_W, DISPLAY_H, ZOOM, OFFSET
-from mandelbrot_demo.impl.impl_versioner import mandelbrot, init_values
 import time
+
+from mandelbrot_demo.impl.impl_versioner import init_values
+from mandelbrot_demo.impl.impl_versioner import mandelbrot
+from mandelbrot_demo.impl.visualization import DISPLAY_H
+from mandelbrot_demo.impl.visualization import DISPLAY_W
+from mandelbrot_demo.impl.visualization import OFFSET
+from mandelbrot_demo.impl.visualization import ZOOM
+from mandelbrot_demo.impl.visualization import pg_draw
+from mandelbrot_demo.impl.visualization import pg_finalize
+from mandelbrot_demo.impl.visualization import pg_init
+from mandelbrot_demo.impl.visualization import pg_prep_next_frame
+from mandelbrot_demo.impl.visualization import pg_test_quit
+from mandelbrot_demo.impl.visualization import pg_update_fps
 
 
 class Fractal:
@@ -60,7 +69,7 @@ def main():
 
         # Perform updates
         if frames % 300 == 0:
-            scale = 1.0/scale
+            scale = 1.0 / scale
             incr = -incr
         zoom *= scale
         offset_x += incr
