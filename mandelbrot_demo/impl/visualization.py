@@ -13,7 +13,6 @@ OFFSET = (OFFSET_X, OFFSET_Y)
 ZOOM = 2.5/DISPLAY_H
 
 
-
 def set_display():
     os.environ['SDL_VIDEO_CENTERED'] = '1'
 
