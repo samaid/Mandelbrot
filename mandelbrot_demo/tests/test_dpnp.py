@@ -1,5 +1,4 @@
 import dpnp as np
-import pytest
 
 from mandelbrot_demo.impl.impl_dpnp import mandelbrot
 
@@ -12,5 +11,5 @@ def test_dpnp():
     colors = np.full((w, h, 3), 0, dtype=np.int32)
 
     colors = mandelbrot(w, h, zoom, offset, colors)
-    s = colors.astype(np.float).sum()
-    assert np.asnumpy(s) == pytest.approx(2055.0)
+    s = colors.astype(np.int32).sum()
+    assert np.asnumpy(s) == 2055.0

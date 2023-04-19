@@ -12,5 +12,5 @@ def _test_numba_dpex():
     colors = np.full((w, h, 3), 0, dtype=np.int32)
 
     colors = mandelbrot(w, h, zoom, offset, colors)
-    s = colors.astype(np.float).sum()
-    assert np.asnumpy(s) == pytest.approx(1405.0)
+    s = colors.astype(np.int32).sum()
+    assert np.asnumpy(s) == 1405
