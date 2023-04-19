@@ -15,7 +15,7 @@ For further details please visit respective [Wikipedia article](https://en.wikip
 
 `conda install -c pycoddiy/label/dev mandelbrot-demo`
 
-##Running demo
+## Running demo
 
 From command line type:
 `mandelbrot  [command line options]`
