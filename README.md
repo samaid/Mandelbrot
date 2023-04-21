@@ -17,12 +17,12 @@ that reveals progressively ever-finer recursive detail at increasing magnificati
 
 For further details please visit respective [Wikipedia article](https://en.wikipedia.org/wiki/Mandelbrot_set).
 
-## Installation
+## How to run demo
 
+### Running from installed conda package
+
+Install the demo as follows:
 `conda install -c pycoddiy/label/dev mandelbrot-demo`
-
-
-## Running demo
 
 From command line type:
 `mandelbrot  [command line options]`
@@ -32,4 +32,21 @@ From command line type:
   does not stop until user action, e.g. close window
 * `--gui` (default) or `--no-gui` - render the evolution of the grid or do the computation only and
   print performance statistics in the end.
-* `--task-size` - window size WIDTH, HEIGHT. Example: 1024,800 (default)
+* `--task-size` - window size WIDTH, HEIGHT. Example: 1024,800
+
+### Running from GitHub sources
+Clone repository to a local project directory:
+```
+git clone https://github.com/samaid/Mandelbrot.git
+cd ./Mandelbrot
+```
+
+From the command line type:
+`python mandelbrot_demo.py [command line options]`
+
+* `--variant [numba, numpy, dpnp, numba-dpex]` (default `numpy`) - implementation variant
+* `--frames-count` - stop rendering after a specified amount of frames. Default 0 meaning that the demo
+  does not stop until user action, e.g. close window
+* `--gui` (default) or `--no-gui` - render the evolution of the grid or do the computation only and
+  print performance statistics in the end.
+* `--task-size` - window size WIDTH, HEIGHT. Example: 1024,800
