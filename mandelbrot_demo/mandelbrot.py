@@ -81,8 +81,8 @@ def main():
         pg_update_fps(clk, frames)
 
         # Prepare for next frame
-        do_game = do_game and pg_prep_next_frame(frames, clk)
-        frames += 1
+        frames, more_frames_flag = pg_prep_next_frame(frames, clk)
+        do_game = do_game and more_frames_flag
     t2 = time.time()
     pg_finalize()
     print("Avg.fps:", frames / (t2 - t1))
