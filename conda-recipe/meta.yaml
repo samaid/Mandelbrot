@@ -9,45 +9,34 @@ build:
   entry_points:
     - mandelbrot =mandelbrot_demo.mandelbrot:main
   number: {{ GIT_DESCRIBE_NUMBER }}
-  script_env:
-    - WHEELS_OUTPUT_FOLDER
+  noarch: python
 
 test:
   requires:
     - pytest =7.1.2
-    - pytest-cov
-    - pytest-mock =3.10.0
-    - numpy <1.24
-    - numba >=0.56.4
-    - dpnp
-    - dpctl
-    - numba-dpex
-
   imports:
     - mandelbrot_demo
 
 requirements:
   build:
-  host:
     - python
-    - setuptools =65.6.3
-    - git
-    - wheel =0.38.4
+    - pygame
     - numpy
-    - numba >=0.56.4
-    - matplotlib
-    - dpnp
-    - dpctl
-    - numba-dpex
+    #- git
+    #- wheel =0.38.4
+    #- setuptools =65.6.3
+  host:
+    #- python
+    #- pip
 
   run:
-    - python
+    #- python
     - numpy <1.24
-    - numba >=0.56.4
-    - pygame
-    - dpnp
-    - dpctl
-    - numba-dpex
+    #- numba >=0.56.4
+    #- dpnp
+    #- dpctl
+    #- numba-dpex
+    #- pygame =2.3.0
 
 about:
   home: https://github.com/samaid/mandelbrot

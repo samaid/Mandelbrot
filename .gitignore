@@ -14,3 +14,4 @@ mandelbrot_demo/impl/__pycache__/impl_versioner.cpython-39.pyc
 mandelbrot_demo/impl/__pycache__/settings.cpython-39.pyc
 mandelbrot_demo/impl/__pycache__/visualization.cpython-39.pyc
 *.pyc
+*.pyc

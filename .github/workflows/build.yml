@@ -155,7 +155,6 @@ jobs:
           conda create -n test-env $PACKAGE_NAME ${TEST_DEPENDENCIES} python=${{ matrix.python }} ${CHANNELS}
           . $CONDA/etc/profile.d/conda.sh
           conda activate test-env
-          pip install pytest-mock
           # Test installed packages
           conda list -n test-env
       - name: Run tests
