@@ -1,5 +1,5 @@
 package:
-  name: demo_pkg
+  name: mandelbrot-demo
   version: {{ GIT_DESCRIBE_TAG }}
 
 source:
@@ -33,7 +33,7 @@ test:
   imports:
     - mandelbrot_demo
     - mandelbrot_demo.impl
-    - mandelbrot_demo.impl.versioner
+    - mandelbrot_demo.impl_versioner
     - mandelbrot_demo.impl.visualization
     - mandelbrot_demo.impl.arg_parse
 
