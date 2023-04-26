@@ -1,5 +1,5 @@
 package:
-  name: mandelbrot-demo
+  name: demo_pkg
   version: {{ GIT_DESCRIBE_TAG }}
 
 source:
@@ -7,41 +7,44 @@ source:
 
 build:
   entry_points:
-    - mandelbrot =mandelbrot_demo.mandelbrot:main
+    - mandelbrot = mandelbrot_module.mandelbrot:main
   number: {{ GIT_DESCRIBE_NUMBER }}
-  noarch: python
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+
+requirements:
+  host:
+    - python
+  run:
+    - python
+    - pygame >=2.1
+    - numpy >=1.21
+    - numba >=0.55
+    - dpnp
+    - numba-dpex
 
 test:
   requires:
-    - pytest =7.1.2
+    - pytest
+  commands:
+    - mandelbrot --help
+    - python -m mandelbrot_demo --variant numba  --max-frames 1
+    - mandelbrot --gui --max-frames 1
+    - mandelbrot --no-gui --max-frames 1
   imports:
     - mandelbrot_demo
-
-requirements:
-  build:
-    - python
-    - pygame
-    - numpy
-    #- git
-    #- wheel =0.38.4
-    #- setuptools =65.6.3
-  host:
-    #- python
-    #- pip
-
-  run:
-    #- python
-    - numpy <1.24
-    #- numba >=0.56.4
-    #- dpnp
-    #- dpctl
-    #- numba-dpex
-    #- pygame =2.3.0
+    - mandelbrot_demo.impl
+    - mandelbrot_demo.impl.versioner
+    - mandelbrot_demo.impl.visualization
+    - mandelbrot_demo.impl.arg_parse
 
 about:
-  home: https://github.com/samaid/mandelbrot
-  summary: Mandelbrot Set demo with `numpy`, `numba`, `dpnp`, `numba-dpex`.
-  description: |
-    Mandelbrot description
-  license: BSD-2
-  license_file: LICENSE
+  home: https://github.com/samaid
+  license: BSD-2-Clause
+  license_family: BSD
+  license_file:
+    - LICENSE
+  summary: Mandelbort set demo using numpy, numba, dpnp, numba-dpex
+
+extra:
+  recipe-maintainers:
+    - samaid

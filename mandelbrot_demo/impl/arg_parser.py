@@ -15,7 +15,7 @@ def parse_args(argv=None):
         default="numpy",
     )
     parser.add_argument(
-        "--frames-count",
+        "--max-frames",
         help="Stop game after specified amount of frames "
         "(default 0 - no stop frame)",
         type=int,
