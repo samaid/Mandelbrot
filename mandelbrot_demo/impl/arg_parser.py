@@ -15,7 +15,7 @@ def parse_args(argv=None):
         default="numpy",
     )
     parser.add_argument(
-        "--frames-count",
+        "--max-frames",
         help="Stop game after specified amount of frames "
         "(default 0 - no stop frame)",
         type=int,
@@ -25,7 +25,7 @@ def parse_args(argv=None):
         "--gui",
         help="Render the evolution of the grid or do computation only and "
         "print statistics in the end. Default --no-gui",
-        action=argparse.BooleanOptionalAction,
+        action="store_true",
         default=False,
     )
     w = 1024

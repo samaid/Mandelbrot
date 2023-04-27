@@ -11,7 +11,7 @@ if GUI:
 DISPLAY_RES = DISPLAY_W, DISPLAY_H = 1024, 800
 FPS = 60
 
-frames = parse_args().frames_count
+frames = parse_args().max_frames
 if frames > 0:
     N_FRAMES = frames
 else:
