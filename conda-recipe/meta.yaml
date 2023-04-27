@@ -35,7 +35,7 @@ test:
     - mandelbrot_demo.impl
     - mandelbrot_demo.impl.impl_versioner
     - mandelbrot_demo.impl.visualization
-    - mandelbrot_demo.impl.arg_parse
+    - mandelbrot_demo.impl.arg_parser
 
 about:
   home: https://github.com/samaid
