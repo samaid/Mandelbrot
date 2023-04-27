@@ -25,7 +25,7 @@ def parse_args(argv=None):
         "--gui",
         help="Render the evolution of the grid or do computation only and "
         "print statistics in the end. Default --no-gui",
-        action=argparse.BooleanOptionalAction,
+        action="store_true",
         default=False,
     )
     w = 1024
