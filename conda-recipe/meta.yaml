@@ -33,7 +33,7 @@ test:
   imports:
     - mandelbrot_demo
     - mandelbrot_demo.impl
-    - mandelbrot_demo.impl_versioner
+    - mandelbrot_demo.impl.impl_versioner
     - mandelbrot_demo.impl.visualization
     - mandelbrot_demo.impl.arg_parse
 
