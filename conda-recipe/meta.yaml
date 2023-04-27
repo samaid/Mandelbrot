@@ -7,7 +7,7 @@ source:
 
 build:
   entry_points:
-    - mandelbrot = mandelbrot_module.mandelbrot:main
+    - mandelbrot = mandelbrot_demo.mandelbrot:main
   number: {{ GIT_DESCRIBE_NUMBER }}
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
